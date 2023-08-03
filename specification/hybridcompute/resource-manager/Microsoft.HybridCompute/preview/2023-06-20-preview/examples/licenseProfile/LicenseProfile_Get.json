@@ -16,7 +16,10 @@
         "tags": null,
         "properties": {
           "esuProfile": {
-            "arcEsuEnrollmentState": "NotEnrolled",
+            "assignedLicense": "{LicenseResourceId}",
+            "assignedLicenseImmutableId": "{Guid}",
+            "esuEligibility": "Eligible",
+            "serverType": "Standard",
             "esuKeyState": "Inactive",
             "esuKeys": [
               {
@@ -26,13 +29,6 @@
               {
                 "esuSku": "esuSkuNumber2",
                 "licenseStatus": "licenseStatus2"
-              }
-            ],
-            "esuEnrollmentHistory": [
-              {
-                "arcEsuEnrollmentState": "NotEnrolled",
-                "esuKeyState": "Inactive",
-                "time": "2020-08-08T20:42:10.999Z"
               }
             ]
           }

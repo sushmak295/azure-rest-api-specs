@@ -78,9 +78,7 @@
             }
           },
           "esuProperties": {
-            "arcEsuEnrollmentState": "NotEnrolled",
-            "esuKeyState": "Inactive",
-            "serverType": "Standard",
+            "assignedLicense": "<Guid id of License>",
             "esuKeys": [
               {
                 "esuSku": "skuNumber1",

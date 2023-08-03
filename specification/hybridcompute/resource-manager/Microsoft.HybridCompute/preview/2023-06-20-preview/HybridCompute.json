@@ -256,6 +256,307 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/licenses/{licenseName}": {
+      "put": {
+        "tags": [
+          "licenses"
+        ],
+        "operationId": "Licenses_CreateOrUpdate",
+        "description": "The operation to create or update a license.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/machineNameParameter"
+          },
+          {
+            "$ref": "#/parameters/licenseNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/License"
+            },
+            "description": "Parameters supplied to the Create license operation."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated Resource",
+            "schema": {
+              "$ref": "#/definitions/License"
+            }
+          },
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/License"
+            },
+            "headers": {
+              "Location": {
+                "description": "The URL of the resource used to check the status of the asynchronous operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The recommended number of seconds to wait before calling the URI specified in Azure-AsyncOperation.",
+                "type": "integer",
+                "format": "int32"
+              },
+              "Azure-AsyncOperation": {
+                "description": "The URI to poll for completion status.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Create or Update a License Profile": {
+            "$ref": "./examples/licenseProfile/License_CreateOrUpdate.json"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "licenses"
+        ],
+        "operationId": "Licenses_Update",
+        "description": "The operation to update a license.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/machineNameParameter"
+          },
+          {
+            "$ref": "#/parameters/licenseNameParameter"
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/License"
+            },
+            "description": "Parameters supplied to the Update license operation."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/License"
+            }
+          },
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Location": {
+                "description": "The URL of the resource used to check the status of the asynchronous operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The recommended number of seconds to wait before calling the URI specified in Azure-AsyncOperation.",
+                "type": "integer",
+                "format": "int32"
+              },
+              "Azure-AsyncOperation": {
+                "description": "The URI to poll for completion status.",
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Update a License Profile": {
+            "$ref": "./examples/licenseProfile/License_Update.json"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "licenses"
+        ],
+        "operationId": "Licenses_Get",
+        "description": "Retrieves information about the view of a license.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/machineNameParameter"
+          },
+          {
+            "$ref": "#/parameters/licenseNameParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/License"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get License Profile": {
+            "$ref": "./examples/licenseProfile/License_Get.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "licenses"
+        ],
+        "operationId": "Licenses_Delete",
+        "description": "The operation to delete a license.",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/machineNameParameter"
+          },
+          {
+            "$ref": "#/parameters/licenseNameParameter"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "headers": {
+              "Location": {
+                "description": "The URL of the resource used to check the status of the asynchronous operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "The recommended number of seconds to wait before calling the URI specified in Azure-AsyncOperation.",
+                "type": "integer",
+                "format": "int32"
+              },
+              "Azure-AsyncOperation": {
+                "description": "The URI to poll for completion status.",
+                "type": "string"
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Delete a License Profile": {
+            "$ref": "./examples/licenseProfile/License_Delete.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/licenses": {
+      "get": {
+        "tags": [
+          "licenses"
+        ],
+        "operationId": "licenses_List",
+        "description": "The operation to get all license profiles of a non-Azure machine",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "machineName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "pattern": "[a-zA-Z0-9-_\\.]",
+            "minLength": 1,
+            "maxLength": 54,
+            "description": "The name of the machine."
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/LicensesListResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "GET all Machine Extensions": {
+            "$ref": "./examples/licenseProfile/License_List.json"
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/licenseProfiles/{licenseProfileName}": {
       "put": {
         "tags": [
@@ -2236,6 +2537,125 @@
       ],
       "description": "The List hybrid machine operation response."
     },
+    "ProvisioningState": {
+      "readOnly": true,
+      "type": "string",
+      "enum": [
+        "Creating",
+        "Updating",
+        "Deleting",
+        "Succeeded",
+        "Failed",
+        "Accepted",
+        "Canceled",
+        "Deleted"
+      ],
+      "x-ms-enum": {
+        "name": "ProvisioningState",
+        "modelAsString": true
+      },
+      "description": "The provisioning state, which only appears in the response."
+    },
+    "License": {
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "$ref": "#/definitions/ProvisioningState"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "x-ms-client-flatten": true,
+            "$ref": "#/definitions/LicenseProperties",
+            "description": "Hybrid Compute License properties"
+          },
+          "description": "Describe the properties of a license."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/TrackedResource"
+        }
+      ],
+      "description": "Describes a license profile in a hybrid machine."
+    },
+    "LicenseProperties": {
+      "type": "object",
+      "properties": {
+        "licenseType": {
+          "type": "string",
+          "description": "TODO"
+        },
+        "licenseDetails": {
+          "$ref": "#/definitions/LicenseDetails"
+        }
+      },
+      "description": "Describes the properties of a License Profile."
+    },
+    "LicenseDetails": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "Activated",
+            "Deactivated"
+          ],
+          "x-ms-enum": {
+            "name": "LicenseState",
+            "modelAsString": true
+          },
+          "description": "TODO"
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "Windows Server 2012",
+            "Windows Server 2012 R2"
+          ],
+          "x-ms-enum": {
+            "name": "LicenseTarget",
+            "modelAsString": true
+          },
+          "description": "TODO"
+        },
+        "edition": {
+          "type": "string",
+          "enum": [
+            "Standard",
+            "Datacenter"
+          ],
+          "x-ms-enum": {
+            "name": "LicenseEdition",
+            "modelAsString": true
+          },
+          "description": "TODO"
+        },
+        "type": {
+          "$ref": "#/definitions/LicenseCoreType",
+          "description": "TODO"
+        },
+        "processors": {
+          "type": "integer",
+          "description": "TODO"
+        },
+        "additionalVirtualMachines": {
+          "type": "integer",
+          "description": "TODO"
+        },
+        "assignedLicenses": {
+          "readOnly": true,
+          "type": "integer",
+          "description": "TODO"
+        },
+        "immutableId": {
+          "readOnly": true,
+          "type": "string",
+          "description": "TODO"
+        }
+      },
+      "description": "Describes the properties of a License."
+    },
     "LicenseProfile": {
       "type": "object",
       "properties": {
@@ -2321,10 +2741,35 @@
       ],
       "description": "The List hybrid machine operation response."
     },
+    "EsuServerType": {
+      "type": "string",
+      "enum": [
+        "Standard",
+        "Datacenter"
+      ],
+      "x-ms-enum": {
+        "name": "EsuServerType",
+        "modelAsString": true
+      },
+      "description": "The server types for Esu."
+    },
+    "EsuEligibility": {
+      "type": "string",
+      "enum": [
+        "Eligible",
+        "Ineligible",
+        "Unknown"
+      ],
+      "x-ms-enum": {
+        "name": "EsuEligibility",
+        "modelAsString": true
+      },
+      "description": "The ESU eligibity."
+    },
     "EsuKey": {
       "type": "object",
       "properties": {
-        "esuSku": {
+        "sku": {
           "type": "string",
           "description": "SKU number."
         },
@@ -2334,20 +2779,6 @@
         }
       },
       "description": "ESU key"
-    },
-    "ArcEnabledEsuStatus": {
-      "type": "string",
-      "enum": [
-        "Enrolled",
-        "NotEnrolled",
-        "Ineligible",
-        "Unknown"
-      ],
-      "x-ms-enum": {
-        "name": "ArcEnabledEsuStatus",
-        "modelAsString": true
-      },
-      "description": "The ESU enrollment state."
     },
     "EsuKeyState": {
       "type": "string",
@@ -2361,32 +2792,30 @@
       },
       "description": "The ESU key state."
     },
-    "EsuEnrollmentUpdateRecord": {
-      "type": "object",
-      "properties": {
-        "arcEsuEnrollmentState": {
-          "$ref": "#/definitions/ArcEnabledEsuStatus",
-          "description": "The Arc ESU enrollment state."
-        },
-        "esuKeyState": {
-          "$ref": "#/definitions/EsuKeyState",
-          "description": "The ESU Key state."
-        },
-        "time": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The time that the state has been changed."
-        }
-      },
-      "description": "ESU enrollment record."
-    },
     "EsuProfileProperties": {
       "type": "object",
       "properties": {
-        "arcEsuEnrollmentState": {
-          "$ref": "#/definitions/ArcEnabledEsuStatus"
+        "assignedLicense": {
+          "type": "string",
+          "description": "The resource id of the license."
+        },
+        "assignedLicenseImmutableId": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The guid id of the license."
+        },
+        "esuEligibility": {
+          "readOnly": true,
+          "$ref": "#/definitions/EsuEligibility",
+          "description": "Indicates the eligibility state of Esu."
+        },
+        "serverType": {
+          "readOnly": true,
+          "$ref": "#/definitions/EsuServerType",
+          "description": "The type of the Esu servers."
         },
         "esuKeyState": {
+          "readOnly": true,
           "$ref": "#/definitions/EsuKeyState",
           "description": "Indicates whether there is an ESU Key currently active for the machine."
         },
@@ -2398,15 +2827,6 @@
           },
           "description": "The list of ESU keys.",
           "x-ms-identifiers": []
-        },
-        "esuEnrollmentHistory": {
-          "readOnly": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EsuEnrollmentUpdateRecord"
-          },
-          "description": "The time records represent the state change of ESU enrollment.",
-          "x-ms-identifiers": []
         }
       },
       "description": "Describes the properties of a License Profile."
@@ -2414,8 +2834,9 @@
     "EsuProfileUpdateProperties": {
       "type": "object",
       "properties": {
-        "arcEsuEnrollmentState": {
-          "$ref": "#/definitions/ArcEnabledEsuStatus"
+        "assignedLicense": {
+          "type": "string",
+          "description": "The resource id of the license."
         }
       },
       "description": "Describes the Update properties of a License Profile."
@@ -2424,25 +2845,9 @@
       "readOnly": true,
       "type": "object",
       "properties": {
-        "arcEsuEnrollmentState": {
-          "$ref": "#/definitions/ArcEnabledEsuStatus",
-          "description": "The Arc ESU enrollment state."
-        },
-        "esuKeyState": {
-          "$ref": "#/definitions/EsuKeyState",
-          "description": "Indicates whether there is an ESU Key currently active for the machine."
-        },
-        "serverType": {
+        "assignedLicense": {
           "type": "string",
-          "enum": [
-            "Standard",
-            "Datacenter"
-          ],
-          "x-ms-enum": {
-            "name": "arcServerType",
-            "modelAsString": true
-          },
-          "description": "Indicates whether server is a Standard or Datacenter Sku."
+          "description": "The Guid id of the license."
         },
         "esuKeys": {
           "type": "array",
@@ -3296,6 +3701,22 @@
       "x-ms-parameter-location": "method",
       "x-ms-enum": {
         "name": "LicenseProfileName",
+        "modelAsString": false
+      }
+    },
+    "licenseNameParameter": {
+      "name": "licenseName",
+      "in": "path",
+      "description": "The name of the license.",
+      "required": true,
+      "type": "string",
+      "pattern": "[a-zA-Z0-9-_\\.]+",
+      "enum": [
+        "default"
+      ],
+      "x-ms-parameter-location": "method",
+      "x-ms-enum": {
+        "name": "LicenseName",
         "modelAsString": false
       }
     }
