@@ -9,8 +9,7 @@
       "location": "eastus2euap",
       "properties": {
         "esuProfile": {
-          "assignedLicense": "{LicenseResourceId}",
-          "serverType": "Standard"
+          "assignedLicense": "{LicenseResourceId}"
         }
       }
     }

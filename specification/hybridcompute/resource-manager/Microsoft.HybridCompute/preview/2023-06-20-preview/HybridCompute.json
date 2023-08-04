@@ -130,7 +130,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/License"
+              "$ref": "#/definitions/LicenseUpdate"
             },
             "description": "Parameters supplied to the Update license operation."
           }
@@ -2558,52 +2558,130 @@
       "type": "object",
       "properties": {
         "licenseType": {
-          "type": "string",
-          "description": "TODO"
+          "$ref": "#/definitions/LicenseType",
+          "description": "The type of the license resource."
         },
         "licenseDetails": {
-          "$ref": "#/definitions/LicenseDetails"
+          "$ref": "#/definitions/LicenseDetails",
+          "description": "Describes the properties of a License."
         }
       },
       "description": "Describes the properties of a License Profile."
+    },
+    "LicenseUpdate": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/LicenseUpdateProperties",
+          "description": "License Update properties"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ResourceUpdate"
+        }
+      ],
+      "description": "Describes a License Update."
+    },
+    "LicenseUpdateProperties": {
+      "type": "object",
+      "properties": {
+        "licenseType": {
+          "$ref": "#/definitions/LicenseType",
+          "description": "The type of the license resource."
+        },
+        "licenseDetails": {
+          "type": "object",
+          "properties": {
+            "x-ms-client-flatten": true,
+            "state": {
+              "$ref": "#/definitions/LicenseState"
+            },
+            "target": {
+              "$ref": "#/definitions/LicenseTarget"
+            },
+            "edition": {
+              "$ref": "#/definitions/LicenseEdition"
+            },
+            "type": {
+              "$ref": "#/definitions/LicenseCoreType"
+            },
+            "processors": {
+              "type": "integer",
+              "format": "int32",
+              "description": "TODO"
+            },
+            "additionalVirtualMachines": {
+              "type": "integer",
+              "format": "int32",
+              "description": "TODO"
+            }
+          }
+        }
+      },
+      "description": "Describes the Update properties of a License Profile."
+    },
+    "LicenseType": {
+      "type": "string",
+      "enum": [
+        "ESU"
+      ],
+      "x-ms-enum": {
+        "name": "LicenseType",
+        "modelAsString": true
+      },
+      "description": "The type of the license resource."
+    },
+    "LicenseState": {
+      "type": "string",
+      "enum": [
+        "Activated",
+        "Deactivated"
+      ],
+      "x-ms-enum": {
+        "name": "LicenseState",
+        "modelAsString": true
+      },
+      "description": "TODO"
+    },
+    "LicenseTarget": {
+      "type": "string",
+      "enum": [
+        "Windows Server 2012",
+        "Windows Server 2012 R2"
+      ],
+      "x-ms-enum": {
+        "name": "LicenseTarget",
+        "modelAsString": true
+      },
+      "description": "TODO"
+    },
+    "LicenseEdition": {
+      "type": "string",
+      "enum": [
+        "Standard",
+        "Datacenter"
+      ],
+      "x-ms-enum": {
+        "name": "LicenseEdition",
+        "modelAsString": true
+      },
+      "description": "TODO"
     },
     "LicenseDetails": {
       "type": "object",
       "properties": {
         "state": {
-          "type": "string",
-          "enum": [
-            "Activated",
-            "Deactivated"
-          ],
-          "x-ms-enum": {
-            "name": "LicenseState",
-            "modelAsString": true
-          },
+          "$ref": "#definitions/LicenseState",
           "description": "TODO"
         },
         "target": {
-          "type": "string",
-          "enum": [
-            "Windows Server 2012",
-            "Windows Server 2012 R2"
-          ],
-          "x-ms-enum": {
-            "name": "LicenseTarget",
-            "modelAsString": true
-          },
+          "$ref": "#definitions/LicenseTarget",
           "description": "TODO"
         },
         "edition": {
-          "type": "string",
-          "enum": [
-            "Standard",
-            "Datacenter"
-          ],
-          "x-ms-enum": {
-            "name": "LicenseEdition",
-            "modelAsString": true
-          },
+          "$ref": "#definitions/LicenseEdition",
           "description": "TODO"
         },
         "type": {
